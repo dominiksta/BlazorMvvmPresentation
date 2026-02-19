@@ -14,12 +14,21 @@ public partial class CounterViewModel : ObservableObject
             IncrementCountCommand.NotifyCanExecuteChanged();
         }
     }
-
+    
     public readonly RelayCommand IncrementCountCommand;
+    public readonly AsyncRelayCommand AsyncIncrementCountCommand;
     
     public CounterViewModel()
     {
         IncrementCountCommand = new RelayCommand(() => Count++, IncrementEnabled);
+        AsyncIncrementCountCommand = new AsyncRelayCommand(
+            execute: async () =>
+            {
+                await Task.Delay(TimeSpan.FromSeconds(1));
+                Count++;
+            },
+            canExecute: IncrementEnabled
+        );
     }
     
     private bool IncrementEnabled() => Count < 10;
@@ -29,4 +38,11 @@ public partial class CounterViewModel : ObservableObject
     //
     // [RelayCommand(CanExecute = nameof(IncrementEnabled))]
     // private void IncrementCount() => Count++;
+    //
+    // [RelayCommand(CanExecute = nameof(IncrementEnabled))]
+    // private async Task AsyncIncrementCount()
+    // {
+    //     await Task.Delay(TimeSpan.FromSeconds(1));
+    //     Count++;
+    // }
 }

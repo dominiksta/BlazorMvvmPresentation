@@ -10,6 +10,12 @@
     Increment (from RelayCommand)
 </FluentButton>
 
+<FluentButton
+    OnClick="@Vm.AsyncIncrementCountCommand.Bind(this)"
+    Disabled="@(!Vm.AsyncIncrementCountCommand.CanExecute(null))">
+    Increment (from AsyncRelayCommand)
+</FluentButton>
+
 <FluentButton @onclick="@(() => Vm.Count++)">
     Increment (from lambda)
 </FluentButton>

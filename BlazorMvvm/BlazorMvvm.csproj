@@ -11,10 +11,14 @@
         <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.14.0" />
         <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.14.0" />
         
-        <PackageReference Include="Dmnk.Blazor.Mvvm" Version="0.0.4" />
+        <PackageReference Include="Dmnk.Blazor.Mvvm" Version="0.0.5" />
         <PackageReference Include="Dmnk.Blazor.Mvvm.CommunityToolkit" Version="0.0.1" />
         <PackageReference Include="Dmnk.Blazor.OverlayScrollbar" Version="0.0.2" />
         <PackageReference Include="Dmnk.Blazor.Dialogs.Fluent" Version="0.0.1" />
         <PackageReference Include="Dmnk.Icons.Blazor.Fluent" Version="0.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Util\" />
     </ItemGroup>
 </Project>

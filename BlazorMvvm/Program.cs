@@ -1,5 +1,9 @@
 using BlazorMvvm;
 using BlazorMvvm.Components;
+using BlazorMvvm.Components.Pages.TestDialog;
+using Dmnk.Blazor.Dialogs;
+using Dmnk.Blazor.Dialogs.Api;
+using Dmnk.Blazor.Dialogs.Fluent;
 using Dmnk.Blazor.Mvvm;
 using Microsoft.FluentUI.AspNetCore.Components;
 
@@ -10,6 +14,11 @@ builder.Services.AddFluentUIComponents();
 
 builder.Services.AddDynamicItemViewModels();
 builder.Services.AddSingleton<IViewModelRegistry, ViewModelRegistry>();
+
+var dialogController = new FluentVmDialogController();
+dialogController.Register<TestDialogView, TestDialogViewModel>();
+builder.Services.AddSingleton<BlazorVmDialogController>(dialogController);
+builder.Services.AddSingleton<IVmDialogController>(dialogController);
 
 var app = builder.Build();
 

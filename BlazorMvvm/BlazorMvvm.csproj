@@ -14,7 +14,8 @@
         <PackageReference Include="Dmnk.Blazor.Mvvm" Version="0.0.5" />
         <PackageReference Include="Dmnk.Blazor.Mvvm.CommunityToolkit" Version="0.0.1" />
         <PackageReference Include="Dmnk.Blazor.OverlayScrollbar" Version="0.0.2" />
-        <PackageReference Include="Dmnk.Blazor.Dialogs.Fluent" Version="0.0.1" />
+        <PackageReference Include="Dmnk.Blazor.Dialogs.Fluent" Version="0.0.2" />
+        <PackageReference Include="Dmnk.Blazor.Dialogs.CommunityToolkit" Version="0.0.1" />
         <PackageReference Include="Dmnk.Icons.Blazor.Fluent" Version="0.0.1" />
     </ItemGroup>
 </Project>

@@ -12,18 +12,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 builder.Services.AddFluentUIComponents();
 
-builder.Services.AddDynamicItemViewModels();
 builder.Services.AddSingleton<IViewModelRegistry, ViewModelRegistry>();
-
-var dialogController = new FluentVmDialogController();
-dialogController.Register<TestDialogView, TestDialogViewModel>();
-builder.Services.AddSingleton<BlazorVmDialogController>(dialogController);
-builder.Services.AddSingleton<IVmDialogController>(dialogController);
+builder.Services.AddDynamicItemViewModels();
+builder.Services.AddDialogs();
 
 var app = builder.Build();
 
-BlazorMvvm.SourceGeneratedViewModelRegistrations
-    .Register(app.Services.GetRequiredService<IViewModelRegistry>());
+app.Services.GetRequiredService<IViewModelRegistry>().AddView2ViewModelMappings();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

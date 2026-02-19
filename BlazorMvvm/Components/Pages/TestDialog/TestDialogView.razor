@@ -20,11 +20,12 @@
     [Parameter] public override required VmDialogReference Dialog { get; set; }
     [Parameter] public override required VmDialogParameters Params { get; set; }
 
-    private void OnInputKeyDown(KeyboardEventArgs e)
+    private async Task OnInputKeyDown(KeyboardEventArgs e)
     {
+        await Task.Delay(10); // give the input field a chance to update the bound value
         if (e.Key == "Enter")
         {
-            Dialog.Close();
+            await Dialog.Close();
         }
     }
 

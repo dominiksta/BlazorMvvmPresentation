@@ -10,7 +10,10 @@ public partial class DialogHostViewModel(IVmDialogController dialogController) :
     [RelayCommand]
     private async Task ShowDialog()
     {
-        var vm = new TestDialogViewModel(dialogController);
+        var vm = new TestDialogViewModel(dialogController)
+        {
+            InputValue = "Initial Input Value"
+        };
         var dlg = await dialogController.Show(
             new VmDialogParameters { Title = "Input Dialog" }, vm);
         

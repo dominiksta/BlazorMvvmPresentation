@@ -1,14 +1,20 @@
+using BlazorMvvm;
 using BlazorMvvm.Components;
+using Dmnk.Blazor.Mvvm;
 using Microsoft.FluentUI.AspNetCore.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents();
+builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 builder.Services.AddFluentUIComponents();
 
+builder.Services.AddDynamicItemViewModels();
+builder.Services.AddSingleton<IViewModelRegistry, ViewModelRegistry>();
+
 var app = builder.Build();
+
+BlazorMvvm.SourceGeneratedViewModelRegistrations
+    .Register(app.Services.GetRequiredService<IViewModelRegistry>());
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

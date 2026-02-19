@@ -17,8 +17,4 @@
         <PackageReference Include="Dmnk.Blazor.Dialogs.Fluent" Version="0.0.1" />
         <PackageReference Include="Dmnk.Icons.Blazor.Fluent" Version="0.0.1" />
     </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Util\" />
-    </ItemGroup>
 </Project>
